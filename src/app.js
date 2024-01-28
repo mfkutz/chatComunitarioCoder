@@ -28,8 +28,9 @@ io.on('connection', (socket) => {
     })
 
     socket.on('updateMessages', () => {
+        //Enviar los mensajes que ya estaban cuando se conecta un nuevo usuario
         io.emit('messageLogs', messages)
-        // Emitir mensaje a todos los usuarios excepto al que se está conectando
+        // Emitir alerta a todos los usuarios excepto al que se está conectando
         socket.broadcast.emit('newUserConnected')
     })
 
